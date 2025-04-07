@@ -1,20 +1,53 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import FormList from './views/form-list/index.vue';
+import FormContent from './views/form-content/index.vue';
 </script>
 
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div class="app-layout">
+    <aside class="side-panel left-panel">
+      <FormList />
+    </aside>
+    <main class="content">
+      <FormContent />
+    </main>
+    <!-- <aside class="side-panel right-panel">
+      <h2>Right Panel</h2>
+    </aside> -->
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+.app-layout {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.side-panel {
+  width: 20%;
+  padding: 1rem;
+  background-color: #f4f4f4;
+  border-right: 1px solid #ddd;
+  overflow-y: auto;
+}
+
+.left-panel {
+  border-right: 1px solid #ddd;
+}
+
+.right-panel {
+  border-left: 1px solid #ddd;
+}
+
+.content {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

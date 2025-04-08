@@ -32,6 +32,12 @@ export default class FormModel implements FormItem {
             }
 
             if (field.validation_rules) {
+
+                if (!field.required && !value) {
+                    field.error = '';
+                    return true;
+                }
+
                 for (const rule of field.validation_rules) {
                     const fieldValid = FormValidator.validate(rule, value);
 

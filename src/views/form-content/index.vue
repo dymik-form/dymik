@@ -13,11 +13,17 @@ eventStore();
 </script>
 
 <style scoped lang="scss">
+
+
 .form-content.full-width {
   width: 100%;
   max-width: 600px;
-  background-color: #fff;
+  background-color: #f9f9f9;
   color: #000;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: 0.5px solid #ddd;
+  padding: 8px;
 }
 
 .form-content-items {

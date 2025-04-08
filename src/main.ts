@@ -6,9 +6,10 @@ import PrimeVue from 'primevue/config';
 import Aura from '@primeuix/themes/aura';
 import InputText from 'primevue/inputtext';
 import InputNumber from 'primevue/inputnumber';
-import Dropdown from 'primevue/dropdown';
+import Select from 'primevue/select';
 import TextArea from 'primevue/textarea';
 import Button from 'primevue/button';
+import DatePicker from 'primevue/datepicker';
 import ToastService from 'primevue/toastservice';
 
 DirectusService.init(import.meta.env.VITE_DIRECTUS_URL, import.meta.env.VITE_DIRECTUS_STATIC_TOKEN);
@@ -26,9 +27,10 @@ app.use(ToastService);
 // Register PrimeVue components globally
 app.component('InputText', InputText);
 app.component('InputNumber', InputNumber);
-app.component('Dropdown', Dropdown);
+app.component('Select', Select);
 app.component('TextArea', TextArea);
 app.component('Button', Button);
+app.component('DatePicker', DatePicker);
 
 
 app.mount('#app')

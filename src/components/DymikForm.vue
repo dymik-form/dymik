@@ -1,6 +1,6 @@
 <template>
     <div class="dymik-form">
-        <div class="field" v-for="field of props.form.fields">
+        <div class="field" :class="field.classes" v-for="field of props.form.fields">
             <label v-if="field.label" :for="field.name">
                 {{ field.label }}
                 <span v-if="field.required" class="required">*</span>
@@ -79,8 +79,7 @@ async function onFieldClick(field: FormField, event: Event) {
 <style scoped lang="scss">
 .dymik-form {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    gap: 16px;
     flex-wrap: wrap;
     padding: 1rem;
 
@@ -99,6 +98,7 @@ async function onFieldClick(field: FormField, event: Event) {
             font-size: 0.875rem;
             margin-top: 0.25rem;
         }
+
     }
 
     .loading-content {
@@ -127,6 +127,20 @@ async function onFieldClick(field: FormField, event: Event) {
 
     &.error {
         background-color: red;
+    }
+}
+</style>
+
+<style lang="scss">
+.dymik-form {
+    .field {
+        &.full_width {
+            width: 100%;
+        }
+
+        &.half_width {
+            width: calc(50% - 8px);
+        }
     }
 }
 </style>

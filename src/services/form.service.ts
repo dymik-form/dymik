@@ -34,6 +34,7 @@ export default class FormMetadataService {
                     value: rule.validation_rule_id.value,
                 })),
                 error: '',
+                classes: field.field_id.classes,
             })),
             invalid: false,
         }

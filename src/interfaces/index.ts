@@ -21,6 +21,7 @@ export interface FormField {
   required: boolean;
   props: any;
   error: string;
+  classes?: string;
   value?: any;
   validation_rules: ValidationRule[]; // Ensure ValidationRule is defined or imported
 }

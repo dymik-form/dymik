@@ -1,12 +1,13 @@
 <template>
   <div class="form-content full-width">
-    <DymikForm v-if="currentForm" :form="currentForm" @submit="onFormSubmit" />
+    <DymikForm v-if="currentForm" :form="currentForm" @submit="onFormSubmit" @value-change="onValueChanged" />
   </div>
+  
 </template>
 
 <script setup lang="ts">
 import { currentForm } from './index.viewmodel';
-import { eventStore, onFormSubmit } from './index.eventstore';
+import { eventStore, onFormSubmit, onValueChanged } from './index.eventstore';
 import DymikForm from '../../components/DymikForm.vue';
 
 eventStore();

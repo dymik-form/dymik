@@ -1,5 +1,6 @@
 import FormController from "../../controllers/form.controller";
 import FormModel from "../../models/form";
+import { formValue } from "../../models/global";
 import { currentForm } from "./index.viewmodel";
 
 export function eventStore() {
@@ -19,4 +20,9 @@ export function eventStore() {
 
 export function onFormSubmit(value: any) {
     console.log('Form submitted with value: ' + JSON.stringify(value));
+    formValue.value = currentForm.value?.getFormValue();
+}
+
+export function onValueChanged(value: any) {
+    formValue.value = value;
 }

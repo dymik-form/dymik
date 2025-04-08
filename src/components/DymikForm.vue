@@ -5,8 +5,8 @@
                 {{ field.label }}
                 <span v-if="field.required" class="required">*</span>
             </label>
-            <component :is="field.type" v-bind="field.props" :key="field.name" :invalid="!!field.error"
-                @value-change="(value: any) => onValueChanged(field.name, value)"
+            <component :modelValue="field.value" :value="field.value" :is="field.type" v-bind="field.props" :key="field.name"
+                :invalid="!!field.error" @value-change="(value: any) => onValueChanged(field.name, value)"
                 @click="(event: any) => onFieldClick(field, event)" />
             <span v-if="!!field.error" class="error">{{ field.error }}</span>
         </div>
@@ -23,7 +23,7 @@ import type FormModel from '../models/form';
 import type { FormField } from '../interfaces';
 
 const props = defineProps<{ form: FormModel }>();
-const emit = defineEmits(['submit']);
+const emit = defineEmits(['submit', 'value-change']);
 const loading = ref(false);
 const toast = useToast();
 
@@ -42,6 +42,8 @@ function onValueChanged(fieldName: string, value: any) {
 
     if (field) {
         field.value = value;
+
+        emit('value-change', props.form.getFormValue());
     }
 
     props.form.validateField(fieldName, value);

@@ -11,7 +11,7 @@
             <span v-if="!!field.error" class="error">{{ field.error }}</span>
         </div>
         <ProgressSpinner v-if="loading" styleClass="loading-spinner" />
-        <Toast ref="toast" />
+        <Toast />
     </div>
 </template>
 <script setup lang="ts">

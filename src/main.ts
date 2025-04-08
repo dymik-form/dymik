@@ -12,6 +12,9 @@ import Button from 'primevue/button';
 import DatePicker from 'primevue/datepicker';
 import ToastService from 'primevue/toastservice';
 
+import 'primeicons/primeicons.css'
+
+
 DirectusService.init(import.meta.env.VITE_DIRECTUS_URL, import.meta.env.VITE_DIRECTUS_STATIC_TOKEN);
 
 const app = createApp(App);

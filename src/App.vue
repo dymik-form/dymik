@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import FormList from './views/form-list/index.vue';
 import FormContent from './views/form-content/index.vue';
+import { formValue } from './models/global';
+import { currentForm } from './views/form-content/index.viewmodel';
+
+function clear() {
+  currentForm.value?.reset();
+  formValue.value = currentForm.value?.getFormValue();
+}
 </script>
 
 <template>
@@ -11,9 +18,13 @@ import FormContent from './views/form-content/index.vue';
     <main class="content">
       <FormContent />
     </main>
-    <!-- <aside class="side-panel right-panel">
-      <h2>Right Panel</h2>
-    </aside> -->
+    <aside class="side-panel right-panel">
+      <div>
+        <Button @click="clear">Reset form</Button>
+        <h3>Form value</h3>
+        <div>{{ formValue }}</div>
+      </div>
+    </aside>
   </div>
 </template>
 

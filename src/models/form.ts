@@ -72,6 +72,15 @@ export default class FormModel implements FormItem {
         return formValue;
     }
 
+    public reset(): void {
+        for (const field of this.fields) {
+            field.value = undefined;
+            field.error = '';
+        }
+
+        this.invalid = false;
+    }
+
     public async submitToEndpoint(): Promise<any> {
         if (this.submit_endpoint) {
             const response = await fetch(this.submit_endpoint, {
@@ -81,6 +90,8 @@ export default class FormModel implements FormItem {
                 },
                 body: JSON.stringify(this.getFormValue())
             });
+
+            this.reset();
 
             if (!response.ok) {
                 throw new Error('Failed to submit form');

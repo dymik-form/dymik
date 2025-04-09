@@ -12,6 +12,7 @@ export interface FormItem {
   css_classes?: string;
   submit_endpoint?: string;
   invalid: boolean;
+  disabled?: boolean;
 }
 
 export interface FormField {
@@ -19,11 +20,14 @@ export interface FormField {
   name: string;
   type: string;
   required: boolean;
+  disabled?: boolean;
+  required_text?: string;
   props: any;
   error: string;
   classes?: string;
   value?: any;
-  validation_rules: ValidationRule[]; // Ensure ValidationRule is defined or imported
+  validation_rules: ValidationRule[]; 
+  // Ensure ValidationRule is defined or imported
 }
 
 export interface ValidationRule {

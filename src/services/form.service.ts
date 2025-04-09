@@ -27,6 +27,7 @@ export default class FormMetadataService {
                 name: field.field_id.name,
                 type: field.field_id.type,
                 required: field.field_id.required,
+                required_text: field.field_id.required_text,
                 props: field.field_id.props,
                 validation_rules: field.field_id.validation_rules.map((rule: any) => ({
                     type: rule.validation_rule_id.type,
@@ -35,8 +36,10 @@ export default class FormMetadataService {
                 })),
                 error: '',
                 classes: field.field_id.classes,
+                disabled: field.field_id.disabled || false,
             })),
             invalid: false,
+            disabled: item.disabled || false,
         }
 
         return formItem;

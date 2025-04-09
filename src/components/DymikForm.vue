@@ -7,6 +7,7 @@
             </label>
             <component :modelValue="field.value" :value="field.value" :is="field.type" v-bind="field.props" :key="field.name"
                 :invalid="!!field.error" @value-change="(value: any) => onValueChanged(field.name, value)"
+                :disabled="form.disabled || field.disabled"
                 @click="(event: any) => onFieldClick(field, event)" />
             <span v-if="!!field.error" class="error">{{ field.error }}</span>
         </div>

@@ -9,14 +9,17 @@ export default class FormModel implements FormItem {
     css_classes?: string | undefined;
     submit_endpoint?: string | undefined;
     invalid: boolean;
+    disabled?: boolean;
 
     constructor(form: FormItem) {
         this.name = form.name;
         this.id = form.id;
+        this.description = form.description;
         this.fields = form.fields;
         this.css_classes = form.css_classes;
         this.submit_endpoint = form.submit_endpoint;
         this.invalid = false;
+        this.disabled = form.disabled || false;
     }
 
     public validateField(name: string, value: any): boolean {
@@ -26,7 +29,7 @@ export default class FormModel implements FormItem {
 
 
             if (field.required && !value) {
-                field.error = 'This field is required';
+                field.error = field.required_text || `${field.label} is required`;
                 this.invalid = true;
                 return false;
             }
@@ -70,6 +73,21 @@ export default class FormModel implements FormItem {
             }
         }
         return formValue;
+    }
+
+    public setFormValue(value: Record<string, any>): void {
+        for (const field of this.fields) {
+            if (value.hasOwnProperty(field.name)) {
+                field.value = value[field.name];
+            }
+        }
+    }
+
+    public setFieldValue(name: string, value: any): void {
+        const field = this.fields.find((field) => field.name === name);
+        if (field) {
+            field.value = value;
+        }
     }
 
     public reset(): void {

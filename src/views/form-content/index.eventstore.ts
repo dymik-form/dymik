@@ -1,7 +1,16 @@
 import FormController from "../../controllers/form.controller";
 import FormModel from "../../models/form";
-import { formValue } from "../../models/global";
+import ValidatorUtils from "../../utils/validator";
+
 import { currentForm } from "./index.viewmodel";
+
+ValidatorUtils.customValidators['password_mismatch'] = (_: any, formValue: any) => {
+    console.log('Custom validator called', formValue);
+    const password = formValue?.['password'];
+    const confirmPasswordValue = formValue?.['confirmPassword'];
+    return password === confirmPasswordValue;
+}
+
 
 export function eventStore() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -20,9 +29,14 @@ export function eventStore() {
 
 export function onFormSubmit(value: any) {
     console.log('Form submitted with value: ' + JSON.stringify(value));
-    formValue.value = currentForm.value?.getFormValue();
 }
 
 export function onValueChanged(value: any) {
-    formValue.value = value;
+    if (currentForm.value?.name === 'Demo Form') {
+        const emailField = currentForm.value.fields.find((field) => field.name === 'email');
+
+        if (emailField) {
+            emailField.disabled = value?.['fullName'] == 'a';
+        }
+    }
 }

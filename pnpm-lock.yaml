@@ -11,6 +11,9 @@ dependencies:
   '@primeuix/themes':
     specifier: ^1.0.1
     version: 1.0.1
+  '@standard-schema/spec':
+    specifier: ^1.0.0
+    version: 1.0.0
   primeicons:
     specifier: ^7.0.0
     version: 7.0.0
@@ -657,6 +660,10 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@standard-schema/spec@1.0.0:
+    resolution: {integrity: sha512-m2bOd0f2RT9k8QJx1JN85cZYyH1RqFBdlwtkSlf4tBDYLCiiZnv1fIIwacK6cqwXavOydf0NPToMQgpKq+dVlA==}
+    dev: false
 
   /@types/estree@1.0.7:
     resolution: {integrity: sha512-w28IoSUCJpidD/TGviZwwMJckNESJZXFu7NBZ5YJ4mEUnNraUn9Pm8HSZm/jDF1pDWYKspWE7oVphigUPRakIQ==}

@@ -1,5 +1,5 @@
 import type { FormField, FormItem } from "../interfaces";
-import FormValidator from "../utils/form-validator";
+import ValidatorUtils from "../utils/validator";
 
 export default class FormModel implements FormItem {
     name: string;
@@ -42,7 +42,7 @@ export default class FormModel implements FormItem {
                 }
 
                 for (const rule of field.validation_rules) {
-                    const fieldValid = FormValidator.validate(rule, value);
+                    const fieldValid = ValidatorUtils.validate(rule, value, this.getFormValue());
 
                     if (!fieldValid) {
                         field.error = rule.message || `Invalid value for ${field.label}`;
@@ -117,5 +117,27 @@ export default class FormModel implements FormItem {
         }
     }
 
+    public getFormErrors(): Record<string, string> {
+        const errors: Record<string, string> = {};
+        for (const field of this.fields) {
+            if (field.error) {
+                errors[field.name] = field.error;
+            }
+        }
+        return errors;
+    }
+
+    public getFormError(name: string): string | undefined {
+        const field = this.fields.find((field) => field.name === name);
+        return field?.error;
+    }
+
+    public setFormError(name: string, error: string): void {
+        const field = this.fields.find((field) => field.name === name);
+        if (field) {
+            field.error = error;
+            this.invalid = true;
+        }
+    }
 
 }

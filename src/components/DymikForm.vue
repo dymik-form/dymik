@@ -5,37 +5,22 @@
                 {{ field.label }}
                 <span v-if="field.required" class="required">*</span>
             </label>
-            <component :modelValue="field.value" :value="field.value" :is="field.type" v-bind="field.props" :key="field.name"
+            <component v-model="field.value" :is="field.type" v-bind="field.props" :key="field.name"
                 :invalid="!!field.error" @value-change="(value: any) => onValueChanged(field.name, value)"
                 :disabled="form.disabled || field.disabled"
                 @click="(event: any) => onFieldClick(field, event)" />
             <span v-if="!!field.error" class="error">{{ field.error }}</span>
         </div>
-        <ProgressSpinner v-if="loading" styleClass="loading-spinner" />
-        <Toast />
     </div>
 </template>
 <script setup lang="ts">
 import { defineProps, defineEmits, ref } from 'vue';
-import Toast from 'primevue/toast';
-import { useToast } from 'primevue/usetoast';
-import { ProgressSpinner } from 'primevue';
 import type FormModel from '../models/form';
 import type { FormField } from '../interfaces';
 
 const props = defineProps<{ form: FormModel }>();
-const emit = defineEmits(['submit', 'value-change']);
+const emit = defineEmits(['submit', 'value-change', 'loading', 'submit-result']);
 const loading = ref(false);
-const toast = useToast();
-
-function showToast(message: string, type: 'success' | 'error') {
-    toast.add({
-        severity: type,
-        summary: type === 'success' ? 'Success' : 'Error',
-        detail: message,
-        life: 3000
-    });
-}
 
 function onValueChanged(fieldName: string, value: any) {
     // Update the field value in the form model
@@ -63,15 +48,17 @@ async function onFieldClick(field: FormField, event: Event) {
 
         if (props.form.submit_endpoint) {
             loading.value = true;
+            emit('loading', true);
 
             try {
                 await props.form.submitToEndpoint();
-                showToast('Form submitted successfully!', 'success');
+                emit('submit-result', { message: 'Form submitted successfully!', type: 'success' });
             } catch (error) {
                 console.error('Error:', error);
-                showToast('Failed to submit form.', 'error');
+                emit('submit-result', { message: 'Failed to submit form.', type: 'error' });
             } finally {
                 loading.value = false;
+                emit('loading', false);
             }
         }
 

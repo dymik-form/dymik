@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import FormList from './views/form-list/index.vue';
 import FormContent from './views/form-content/index.vue';
-import { formValue } from './models/global';
 import { currentForm } from './views/form-content/index.viewmodel';
 // @ts-ignore
 import JsonViewer from 'vue-json-pretty'; // Import JSON viewer
 import 'vue-json-pretty/lib/styles.css'; // Import styles for JSON viewer
+import { computed } from 'vue';
 
 function clear() {
   currentForm.value?.reset();
-  formValue.value = currentForm.value?.getFormValue();
 }
 
 function populateData() {
@@ -26,13 +25,21 @@ function populateData() {
   }
 
   currentForm.value?.setFormValue(sampleData);
-
-  formValue.value = currentForm.value?.getFormValue();
 }
 
-const displayValue = formValue as any;
+function setEmailError() {
+  currentForm.value?.setFormError('email', 'Email đã tồn tại trong hệ thống');
+}
+
+const displayValue = computed(() => {
+  return currentForm.value?.getFormValue();
+});
 
 const displayMeta = currentForm as any;
+
+const displayErrors = computed(() => {
+  return currentForm.value?.getFormErrors();
+});
 
 </script>
 
@@ -49,17 +56,21 @@ const displayMeta = currentForm as any;
         <div class="btn-group">
           <Button @click="clear">Reset form</Button>
           <Button @click="populateData">Populate data</Button>
+          <Button @click="setEmailError">Set Email Error</Button>
         </div>
         <h3>Form value</h3>
         <!-- Replace plain text with JSON viewer -->
-         <div class="json-viewer">
+        <div class="json-viewer">
           <JsonViewer :data="displayValue" />
-         </div>
+        </div>
+        <h3>Form error</h3>
+        <div class="json-viewer">
+          <JsonViewer :data="displayErrors" />
+        </div>
         <h3>Form Meta Data</h3>
         <div class="json-viewer">
           <JsonViewer :data="displayMeta" />
         </div>
-       
       </div>
     </aside>
   </div>

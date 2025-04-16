@@ -1,5 +1,5 @@
 <template>
-    <div class="dymik-form">
+    <div class="dymik-form" :class="props.form.css_classes">
         <div class="field" :class="field.classes" v-for="field of props.form.fields">
             <label v-if="field.label" :for="field.name">
                 {{ field.label }}

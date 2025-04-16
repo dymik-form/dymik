@@ -1,8 +1,8 @@
-import FormController from "../../controllers/form.controller";
-import type { FormListItem } from "../../interfaces";
-import FormModel from "../../models/form";
-import { currentForm } from "../form-content/index.viewmodel";
-import { forms } from './index.viewmodel';
+import FormController from "@/controllers/form.controller";
+import type { FormListItem } from 'dymik-core';
+import { FormModel } from 'dymik-core';
+import { currentForm } from "@/views/form-content/index.viewmodel";
+import { forms } from "@/views/form-list/index.viewmodel";
 
 export function openForm(form: FormListItem) {
     FormController.getForm(form.id).then(item => {

@@ -1,4 +1,4 @@
-import FormMetadataService from "../services/form.service";
+import FormMetadataService from "@/services/form.service";
 
 export default class FormController {
     static async getForms() {

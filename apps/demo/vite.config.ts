@@ -8,7 +8,6 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-      'dymik-core': path.resolve(__dirname, './node_modules/dymik-core'),
     },
   },
 })

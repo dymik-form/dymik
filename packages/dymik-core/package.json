@@ -13,7 +13,8 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.es.js"
-    }
+    },
+    "./dist/dymik-core.css": "./dist/dymik-core.css"
   },
   "scripts": {
     "build": "vite build"

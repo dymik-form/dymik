@@ -1,5 +1,5 @@
-import type { FormItem } from "../interfaces";
-import DirectusService from "./directus.service";
+import type { FormItem } from 'dymik-core';
+import DirectusService from "@/services/directus.service";
 
 export default class FormMetadataService {
     static async loadList() {

@@ -1,30 +1,9 @@
 {
-  "name": "my-vue-app",
+  "name": "dymik-monorepo",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@directus/sdk": "^10.0.0",
-    "@primeuix/themes": "^1.0.1",
-    "@standard-schema/spec": "^1.0.0",
-    "primeicons": "^7.0.0",
-    "primevue": "^4.3.3",
-    "vue": "^3.5.13",
-    "vue-json-pretty": "^2.4.0",
-    "vue-router": "^4.5.0",
-    "zod": "^3.24.2"
-  },
+  "packageManager": "pnpm@8.6.0",
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.2.1",
-    "@vue/tsconfig": "^0.7.0",
-    "sass": "^1.86.3",
-    "typescript": "~5.7.2",
-    "vite": "^6.2.0",
-    "vue-tsc": "^2.2.4"
+    "turbo": "^2.5.0",
+    "typescript": "~5.7.2"
   }
 }

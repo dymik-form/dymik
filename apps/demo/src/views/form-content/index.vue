@@ -12,7 +12,6 @@
 import { ref } from 'vue';
 import { currentForm } from './index.viewmodel';
 import { eventStore, onFormSubmit, onValueChanged } from './index.eventstore';
-import DymikForm from '../../components/DymikForm.vue';
 import { useToast } from 'primevue/usetoast';
 import { ProgressSpinner } from 'primevue';
 import Toast from 'primevue/toast';

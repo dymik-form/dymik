@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "module": "ESNext",
+    "target": "ESNext",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*", "src/**/*.vue"]
+}

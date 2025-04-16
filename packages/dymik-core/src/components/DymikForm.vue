@@ -7,15 +7,14 @@
             </label>
             <component v-model="field.value" :is="field.type" v-bind="field.props" :key="field.name"
                 :invalid="!!field.error" @value-change="(value: any) => onValueChanged(field.name, value)"
-                :disabled="form.disabled || field.disabled"
-                @click="(event: any) => onFieldClick(field, event)" />
+                :disabled="form.disabled || field.disabled" @click="(event: any) => onFieldClick(field, event)" />
             <span v-if="!!field.error" class="error">{{ field.error }}</span>
         </div>
     </div>
 </template>
 <script setup lang="ts">
 import { defineProps, defineEmits, ref } from 'vue';
-import type FormModel from '../models/form';
+import FormModel from '../models/form.model';
 import type { FormField } from '../interfaces';
 
 const props = defineProps<{ form: FormModel }>();
@@ -23,8 +22,7 @@ const emit = defineEmits(['submit', 'value-change', 'loading', 'submit-result'])
 const loading = ref(false);
 
 function onValueChanged(fieldName: string, value: any) {
-    // Update the field value in the form model
-    const field = props.form.fields.find((f) => f.name === fieldName);
+    const field = props.form.fields.find((f: FormField) => f.name === fieldName);
 
     if (field) {
         field.value = value;
@@ -97,26 +95,6 @@ async function onFieldClick(field: FormField, event: Event) {
         align-items: center;
         font-size: 1.5rem;
         color: white;
-    }
-}
-
-.toast {
-    position: fixed;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 1rem 2rem;
-    border-radius: 5px;
-    color: white;
-    font-size: 1rem;
-    z-index: 1001;
-
-    &.success {
-        background-color: green;
-    }
-
-    &.error {
-        background-color: red;
     }
 }
 </style>

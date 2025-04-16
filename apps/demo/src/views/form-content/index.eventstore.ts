@@ -1,11 +1,9 @@
-import FormController from "../../controllers/form.controller";
-import FormModel from "../../models/form";
-import ValidatorUtils from "../../utils/validator";
+import FormController from "@/controllers/form.controller";
+import { FormModel, ValidatorUtils } from 'dymik-core';
 
-import { currentForm } from "./index.viewmodel";
+import { currentForm } from "@/views/form-content/index.viewmodel";
 
 ValidatorUtils.customValidators['password_mismatch'] = (_: any, formValue: any) => {
-    console.log('Custom validator called', formValue);
     const password = formValue?.['password'];
     const confirmPasswordValue = formValue?.['confirmPassword'];
     return password === confirmPasswordValue;

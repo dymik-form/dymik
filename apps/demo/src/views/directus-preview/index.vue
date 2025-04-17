@@ -5,26 +5,29 @@
     </Sidebar>
     <main class="content">
       <div class="menu-button-group">
-        <Button icon="pi pi-bars" class="menu-button" @click="showLeftPanel = true" rounded severity="contrast" outlined  />
-        <Button icon="pi pi-cog" class="menu-button" @click="showRightPanel = true" rounded severity="contrast" outlined  />
+        <Button icon="pi pi-bars" class="menu-button" @click="showLeftPanel = true" rounded severity="contrast"
+          outlined />
+        <Button icon="pi pi-cog" class="menu-button" @click="showRightPanel = true" rounded severity="contrast"
+          outlined />
       </div>
       <FormContent />
     </main>
     <transition name="slide-right">
       <div v-if="showRightPanel" class="side-panel right-panel">
         <div>
-          <Button icon="pi pi-times" class="close-button" @click="showRightPanel = false" rounded severity="contrast" outlined />
+          <Button icon="pi pi-times" class="close-button" @click="showRightPanel = false" rounded severity="contrast"
+            outlined />
           <h3>Form value</h3>
           <div class="json-viewer">
-            <JsonViewer :data="displayValue" />
+            <JsonViewer :data="displayValue" :deep="2" />
           </div>
           <h3>Form error</h3>
           <div class="json-viewer">
-            <JsonViewer :data="displayErrors" />
+            <JsonViewer :data="displayErrors" :deep="2" />
           </div>
           <h3>Form Meta Data</h3>
           <div class="json-viewer">
-            <JsonViewer :data="displayMeta" />
+            <JsonViewer :data="displayMeta" :deep="2"/>
           </div>
         </div>
       </div>
@@ -53,29 +56,6 @@ onMounted(() => {
   showLeftPanel.value = !id;
 });
 
-function clear() {
-  currentForm.value?.reset();
-}
-
-function populateData() {
-  const sampleData = {
-    "id": "Tesst",
-    "fullName": "Nguyễn Đăng Khoa",
-    "phone": "0393689453",
-    "email": "dangkhoaicao@gmail.com",
-    "gender": "Nam",
-    "quantity": 2,
-    "birth_day": "1993-09-18T17:00:00",
-    "id_number": "087093008430",
-    "note": "Vợ con theo nữa"
-  };
-
-  currentForm.value?.setFormValue(sampleData);
-}
-
-function setEmailError() {
-  currentForm.value?.setFormError('email', 'Email đã tồn tại trong hệ thống');
-}
 
 const displayValue = computed(() => {
   return currentForm.value?.getFormValue();
@@ -114,12 +94,15 @@ const displayErrors = computed(() => {
   right: 0;
   width: 20%;
   height: 100%;
+  min-width: 400px;
   padding: 1rem;
   background-color: #f4f4f4;
   border-left: 1px solid #ddd;
   overflow-y: auto;
   z-index: 1000;
   transition: transform 0.3s ease-in-out;
+
+  font-size: 12px;
 
   .close-button {
     position: absolute;
@@ -150,11 +133,13 @@ const displayErrors = computed(() => {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 1rem;
     max-height: 700px;
+    font-size: 12px;
     overflow-y: auto;
   }
 }
 
-.slide-right-enter-active, .slide-right-leave-active {
+.slide-right-enter-active,
+.slide-right-leave-active {
   transition: transform 0.3s ease-in-out;
 }
 

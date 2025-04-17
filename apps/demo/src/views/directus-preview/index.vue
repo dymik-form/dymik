@@ -1,32 +1,34 @@
 <template>
   <div class="app-layout">
-    <aside v-if="showLeftPanel" class="side-panel left-panel">
+    <Sidebar v-model:visible="showLeftPanel" position="left" class="side-panel left-panel">
       <FormList />
-    </aside>
+    </Sidebar>
     <main class="content">
+      <div class="menu-button-group">
+        <Button icon="pi pi-bars" class="menu-button" @click="showLeftPanel = true" rounded severity="contrast" outlined  />
+        <Button icon="pi pi-cog" class="menu-button" @click="showRightPanel = true" rounded severity="contrast" outlined  />
+      </div>
       <FormContent />
     </main>
-    <aside v-if="showRightPanel" class="side-panel right-panel">
-      <div>
-        <div class="btn-group">
-          <Button @click="clear">Reset form</Button>
-          <Button @click="populateData">Populate data</Button>
-          <Button @click="setEmailError">Set Email Error</Button>
-        </div>
-        <h3>Form value</h3>
-        <div class="json-viewer">
-          <JsonViewer :data="displayValue" />
-        </div>
-        <h3>Form error</h3>
-        <div class="json-viewer">
-          <JsonViewer :data="displayErrors" />
-        </div>
-        <h3>Form Meta Data</h3>
-        <div class="json-viewer">
-          <JsonViewer :data="displayMeta" />
+    <transition name="slide-right">
+      <div v-if="showRightPanel" class="side-panel right-panel">
+        <div>
+          <Button icon="pi pi-times" class="close-button" @click="showRightPanel = false" rounded severity="contrast" outlined />
+          <h3>Form value</h3>
+          <div class="json-viewer">
+            <JsonViewer :data="displayValue" />
+          </div>
+          <h3>Form error</h3>
+          <div class="json-viewer">
+            <JsonViewer :data="displayErrors" />
+          </div>
+          <h3>Form Meta Data</h3>
+          <div class="json-viewer">
+            <JsonViewer :data="displayMeta" />
+          </div>
         </div>
       </div>
-    </aside>
+    </transition>
   </div>
 </template>
 
@@ -38,6 +40,8 @@ import JsonViewer from 'vue-json-pretty';
 import 'vue-json-pretty/lib/styles.css';
 import { computed, ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
+import Sidebar from 'primevue/sidebar';
+import Button from 'primevue/button';
 
 const showLeftPanel = ref(false);
 const showRightPanel = ref(false);
@@ -93,7 +97,7 @@ const displayErrors = computed(() => {
 }
 
 .side-panel {
-  width: 20%;
+
   padding: 1rem;
   background-color: #f4f4f4;
   border-right: 1px solid #ddd;
@@ -105,7 +109,33 @@ const displayErrors = computed(() => {
 }
 
 .right-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  padding: 1rem;
+  background-color: #f4f4f4;
   border-left: 1px solid #ddd;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+
+  .close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #007ad9;
+    }
+  }
 
   .btn-group {
     display: flex;
@@ -124,11 +154,32 @@ const displayErrors = computed(() => {
   }
 }
 
+.slide-right-enter-active, .slide-right-leave-active {
+  transition: transform 0.3s ease-in-out;
+}
+
+.slide-right-enter-from {
+  transform: translateX(100%);
+}
+
+.slide-right-leave-to {
+  transform: translateX(100%);
+}
+
 .content {
   flex: 1;
   padding: 1rem;
   overflow-y: auto;
   display: flex;
   justify-content: center;
+}
+
+.menu-button-group {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  gap: 1rem;
+  z-index: 1000;
 }
 </style>

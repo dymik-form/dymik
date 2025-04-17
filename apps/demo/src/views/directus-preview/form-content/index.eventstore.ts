@@ -1,7 +1,7 @@
 import FormController from "@/controllers/form.controller";
 import { FormModel, ValidatorUtils } from 'dymik-core';
 
-import { currentForm } from "@/views/form-content/index.viewmodel";
+import { currentForm } from "@/views/directus-preview/form-content/index.viewmodel";
 
 ValidatorUtils.customValidators['password_mismatch'] = (_: any, formValue: any) => {
     const password = formValue?.['password'];

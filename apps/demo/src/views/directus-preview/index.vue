@@ -36,18 +36,18 @@ import FormContent from './form-content/index.vue';
 import { currentForm } from './form-content/index.viewmodel';
 import JsonViewer from 'vue-json-pretty';
 import 'vue-json-pretty/lib/styles.css';
-import { computed, ref } from 'vue';
+import { computed, ref, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
 
 const showLeftPanel = ref(false);
 const showRightPanel = ref(false);
 
-// function toggleLeftPanel() {
-//   showLeftPanel.value = !showLeftPanel.value;
-// }
+const route = useRoute();
 
-// function toggleRightPanel() {
-//   showRightPanel.value = !showRightPanel.value;
-// }
+onMounted(() => {
+  const id = route.query.formId;
+  showLeftPanel.value = !id;
+});
 
 function clear() {
   currentForm.value?.reset();

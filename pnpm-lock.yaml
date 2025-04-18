@@ -81,6 +81,9 @@ importers:
       '@standard-schema/spec':
         specifier: ^1.0.0
         version: 1.0.0
+      arktype:
+        specifier: ^2.1.20
+        version: 2.1.20
       vue:
         specifier: ^3.5.13
         version: 3.5.13(typescript@5.7.3)
@@ -99,6 +102,16 @@ importers:
         version: 4.5.3(typescript@5.7.3)(vite@6.2.6)
 
 packages:
+
+  /@ark/schema@0.46.0:
+    resolution: {integrity: sha512-c2UQdKgP2eqqDArfBqQIJppxJHvNNXuQPeuSPlDML4rjw+f1cu0qAlzOG4b8ujgm9ctIDWwhpyw6gjG5ledIVQ==}
+    dependencies:
+      '@ark/util': 0.46.0
+    dev: false
+
+  /@ark/util@0.46.0:
+    resolution: {integrity: sha512-JPy/NGWn/lvf1WmGCPw2VGpBg5utZraE84I7wli18EDF3p3zc/e9WolT35tINeZO3l7C77SjqRJeAUoT0CvMRg==}
+    dev: false
 
   /@babel/helper-string-parser@7.25.9:
     resolution: {integrity: sha512-4A/SCr/2KLd5jrtOMFzaKjVtAei3+2r/NChoBNoZ3EyP/+GlhoaEGoWOZUmFmoITP7zOJyHIMm+DYRd8o3PvHA==}
@@ -1375,6 +1388,13 @@ packages:
     dependencies:
       sprintf-js: 1.0.3
     dev: true
+
+  /arktype@2.1.20:
+    resolution: {integrity: sha512-IZCEEXaJ8g+Ijd59WtSYwtjnqXiwM8sWQ5EjGamcto7+HVN9eK0C4p0zDlCuAwWhpqr6fIBkxPuYDl4/Mcj/+Q==}
+    dependencies:
+      '@ark/schema': 0.46.0
+      '@ark/util': 0.46.0
+    dev: false
 
   /assertion-error@1.1.0:
     resolution: {integrity: sha512-jgsaNduz+ndvGyFt3uSuWqvy4lCnIJiovtouQN5JZHOKCS2QuhEdbcQHFhVksz2N2U9hXJo8odG7ETyWlEeuDw==}

@@ -1,8 +1,8 @@
 <template>
   <div class="app-layout">
-    <Sidebar v-model:visible="showLeftPanel" position="left" class="side-panel left-panel">
+    <Drawer v-model:visible="showLeftPanel" position="left" class="side-panel left-panel">
       <FormList />
-    </Sidebar>
+    </Drawer>
     <main class="content">
       <div class="menu-button-group">
         <Button
@@ -43,7 +43,7 @@ import FormList from './form-list/index.vue';
 import FormContent from './form-content/index.vue';
 import FormInspector from './form-inspector/index.vue';
 import { currentForm } from './form-content/index.viewmodel';
-import Sidebar from 'primevue/sidebar';
+import Drawer from 'primevue/drawer';
 import Button from 'primevue/button';
 
 import 'vue-json-pretty/lib/styles.css';

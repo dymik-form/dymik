@@ -6,10 +6,15 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "test": "turbo run test"
+    "test": "vitest run",
+    "test:ui": "vitest --ui",
+    "prepare": "husky install"
   },
   "devDependencies": {
+    "@vitest/ui": "^0.34.0",
+    "husky": "^8.0.0",
     "turbo": "^2.5.0",
-    "typescript": "~5.7.2"
+    "typescript": "~5.7.2",
+    "vitest": "^0.34.0"
   }
 }

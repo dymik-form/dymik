@@ -38,7 +38,6 @@ export interface ValidationRule {
   | 'number'
   | 'boolean'
   | 'date'
-  | 'enum'
   | 'regex'
   | 'min'
   | 'max'

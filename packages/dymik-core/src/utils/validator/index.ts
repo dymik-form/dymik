@@ -3,7 +3,7 @@ import ArkTypeValidatorLib from "./libs/arktype";
 import ZodValidatorLib from "./libs/zod";
 
 export default class ValidatorUtils {
-    private static lib: string = 'zod';
+    private static lib: string = 'ark_type';
 
     public static customValidators: Record<string, (value: any, formValue: any) => boolean> = {};
 

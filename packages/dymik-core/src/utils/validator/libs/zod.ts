@@ -1,5 +1,5 @@
 import { z } from "zod";
-import type { IValidatorLib, ValidationRule } from "../../../interfaces";
+import type { IValidatorLib, ValidationRule } from "@/interfaces";
 
 export default class ZodValidatorLib implements IValidatorLib {
 
@@ -36,13 +36,6 @@ export default class ZodValidatorLib implements IValidatorLib {
                 }
             },
             date: () => z.date(),
-            enum: () => {
-                if (Array.isArray(ruleValue)) {
-                    return z.enum(ruleValue as [string, ...string[]]);
-                } else {
-                    throw new Error("Invalid rule value for enum validation. Expected an array.");
-                }
-            },
             custom: () => {
                 if (typeof ruleValue === "function") {
                     return z.custom(ruleValue);

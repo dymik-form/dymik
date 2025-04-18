@@ -1,7 +1,7 @@
 import ValidatorUtils from "./index";
-import type { IValidatorLib, ValidationRule } from "../../interfaces";
+import type { ValidationRule } from "@/interfaces";
 import { describe, expect, it, beforeEach } from "vitest";
-import { StandardSchemaV1 } from "@standard-schema/spec";
+
 
 describe("ValidatorUtils", () => {
     beforeEach(() => {

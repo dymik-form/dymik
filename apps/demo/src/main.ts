@@ -1,7 +1,8 @@
 import { createApp } from 'vue'
 
 import App from './App.vue';
-import DirectusService from './services/directus.service';
+
+
 import PrimeVue from 'primevue/config';
 import InputText from 'primevue/inputtext';
 import InputNumber from 'primevue/inputnumber';
@@ -9,7 +10,7 @@ import Select from 'primevue/select';
 import TextArea from 'primevue/textarea';
 import Button from 'primevue/button';
 import DatePicker from 'primevue/datepicker';
-import Divider  from 'primevue/divider';
+import Divider from 'primevue/divider';
 import Lara from '@primeuix/themes/lara'; // Thay thế Aura bằng LaraDark
 
 import ToastService from 'primevue/toastservice';
@@ -22,8 +23,9 @@ import DymikForm from 'dymik-core';
 import 'dymik-core/dist/dymik-core.css';
 
 import router from './router';
+import FarcadeService from './services/farcade.service';
 
-DirectusService.init(import.meta.env.VITE_DIRECTUS_URL, import.meta.env.VITE_DIRECTUS_STATIC_TOKEN);
+FarcadeService.setup();
 
 const app = createApp(App);
 
@@ -31,7 +33,7 @@ app.use(DymikForm);
 
 app.use(PrimeVue, {
     theme: {
-        preset: Lara 
+        preset: Lara
     }
 });
 

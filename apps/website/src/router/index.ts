@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Preview from '@/views/directus-preview/index.vue';
+import DirectusPreview from '@/views/directus-preview/index.vue';
 import Home from '@/views/home/index.vue';
+import JsonPreviewForm from '@/views/json-preview/json-preview-form.vue';
 
 const routes = [
   {
@@ -9,9 +10,21 @@ const routes = [
     component: Home
   },
   {
-    path: '/preview',
+    path: '/directus-preview',
     name: 'DirectusPreview',
-    component: Preview
+    component: DirectusPreview
+  },
+  {
+    path: '/preview',
+    name: 'Preview',
+    component: () => import('@/views/json-preview/index.vue'),
+    children: [
+      {
+        path: 'form',
+        name: 'JsonPreviewForm',
+        component: JsonPreviewForm
+      }
+    ]
   }
 ];
 

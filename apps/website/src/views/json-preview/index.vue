@@ -2,11 +2,9 @@
   <div class="preview-layout">
     <!-- Header -->
     <header class="header">
-      <img src="/public/logo.png" alt="Dymik Logo" class="logo" />
-      <!-- <nav class="nav">
-        <a href="/" class="nav-link">Home</a>
-        <a href="/preview" class="nav-link">Preview</a>
-      </nav> -->
+        <RouterLink to="/" class="logo">
+          <img src="/public/logo.png" alt="Dymik Logo" class="logo" />
+        </RouterLink>
     </header>
 
     <div class="content-wrapper">
@@ -27,7 +25,16 @@
 </template>
 
 <script lang="ts" setup>
-// Add any necessary script setup here
+import { onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+onMounted(() => {
+  if (router.currentRoute.value.path === '/preview') {
+    router.push('/preview/form?id=login');
+  }
+});
 </script>
 
 <style scoped>
@@ -42,7 +49,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 1rem 2rem;
   background-color: #f8f9fa;
   border-bottom: 1px solid #ddd;
 }

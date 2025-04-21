@@ -19,7 +19,12 @@
                 Create <span class="dynamic-forms-effect">Dynamic Forms</span> Effortlessly
             </h1>
             <p class="hero-description">The ultimate solution for lazy developers to build forms in minutes.</p>
-            <Button label="Get Started" class="p-button-raised p-button-primary" />
+            <div class="hero-buttons">
+                <Button label="Get Started" class="p-button-raised p-button-primary" />
+                <Button label="Preview" class="p-button-outlined p-button-secondary" >
+                    <RouterLink to="/preview" class="nav-link">Preview</RouterLink>
+                </Button>
+            </div>
         </section>
 
         <!-- Features Section -->
@@ -59,15 +64,16 @@
         <!-- Footer -->
         <footer class="footer">
             <p>&copy; 2025 Dymik Form. All rights reserved.</p>
-            <nav class="footer-nav">
+            <!-- <nav class="footer-nav">
                 <a href="#" class="footer-link">Privacy Policy</a>
                 <a href="#" class="footer-link">Terms of Service</a>
-            </nav>
+            </nav> -->
         </footer>
     </div>
 </template>
 
 <script lang="ts" setup>
+import { RouterLink } from 'vue-router';
 import { ref } from 'vue';
 
 const isMenuOpen = ref(false);
@@ -155,6 +161,13 @@ const toggleMenu = () => {
   font-size: 1.5rem; /* Increased font size */
   font-weight: 500;
   border-radius: 5px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
 .features {

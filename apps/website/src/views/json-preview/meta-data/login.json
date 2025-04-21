@@ -1,0 +1,156 @@
+{
+    "name": "Login",
+    "description": "Login form",
+    "id": "b565d387-984d-4d6b-a969-8eeeb908eed3",
+    "fields": [
+      {
+        "label": null,
+        "name": "imgLogo",
+        "type": "img",
+        "required": null,
+        "required_text": "This field is required",
+        "props": {
+          "src": "https://directus.dangkhoaicao.com/assets/19ad1b63-277b-4d81-aa7a-fe8863134a12",
+          "style": "width: 80px; height: 80px; align-self: center"
+        },
+        "validation_rules": [],
+        "error": "",
+        "classes": "text-center full_width",
+        "disabled": false
+      },
+      {
+        "label": null,
+        "name": "title",
+        "type": "h2",
+        "required": null,
+        "required_text": "This field is required",
+        "props": {
+          "innerHTML": "WELCOME TO DYMIK-FORM"
+        },
+        "validation_rules": [],
+        "error": "",
+        "classes": "full_width text-center",
+        "disabled": false
+      },
+      {
+        "label": "Email",
+        "name": "email",
+        "type": "InputText",
+        "required": true,
+        "required_text": "This field is required",
+        "props": {
+          "placeholder": "Please enter your email"
+        },
+        "validation_rules": [
+          {
+            "type": "email",
+            "message": "Invalid Email",
+            "value": null
+          }
+        ],
+        "error": "",
+        "classes": "full_width hide-label",
+        "disabled": false
+      },
+      {
+        "label": "Password",
+        "name": "password",
+        "type": "InputText",
+        "required": true,
+        "required_text": "This field is required",
+        "props": {
+          "type": "password",
+          "placeholder": "Please enter your password"
+        },
+        "validation_rules": [],
+        "error": "",
+        "classes": "full_width hide-label",
+        "disabled": false
+      },
+      {
+        "label": null,
+        "name": "link-fogot-password",
+        "type": "a",
+        "required": null,
+        "required_text": "This field is required",
+        "props": {
+          "innerHTML": "Forgot password?"
+        },
+        "validation_rules": [],
+        "error": "",
+        "classes": "full_width",
+        "disabled": false
+      },
+      {
+        "label": null,
+        "name": "btnLogin",
+        "type": "Button",
+        "required": false,
+        "required_text": null,
+        "props": {
+          "type": "submit",
+          "label": "Login",
+          "icon": "pi pi-user",
+          "severity": "contrast"
+        },
+        "validation_rules": [],
+        "error": "",
+        "classes": "full_width",
+        "disabled": false
+      },
+      {
+        "label": null,
+        "name": "divider_or",
+        "type": "Divider",
+        "required": null,
+        "required_text": "This field is required",
+        "props": {
+          "pt": {
+            "content": "OR"
+          }
+        },
+        "validation_rules": [],
+        "error": "",
+        "classes": "full_width",
+        "disabled": false
+      },
+      {
+        "label": null,
+        "name": "btnGoogle",
+        "type": "Button",
+        "required": null,
+        "required_text": "This field is required",
+        "props": {
+          "label": "Login with Google",
+          "icon": "pi pi-google",
+          "outlined": true,
+          "severity": "contrast"
+        },
+        "validation_rules": [],
+        "error": "",
+        "classes": "full_width google",
+        "disabled": false
+      },
+      {
+        "label": null,
+        "name": "btnMicrosoft",
+        "type": "Button",
+        "required": null,
+        "required_text": "This field is required",
+        "props": {
+          "label": "Login with Microsoft",
+          "icon": "pi pi-microsoft",
+          "outlined": true,
+          "severity": "contrast"
+        },
+        "validation_rules": [],
+        "error": "",
+        "classes": "full_width microsoft",
+        "disabled": false
+      }
+    ],
+    "css_classes": "login-form",
+    "submit_endpoint": null,
+    "invalid": false,
+    "disabled": false
+  }

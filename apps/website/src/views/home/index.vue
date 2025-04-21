@@ -18,7 +18,7 @@
             <h1>
                 Create <span class="dynamic-forms-effect">Dynamic Forms</span> Effortlessly
             </h1>
-            <p class="hero-description">The perfect solution for developers to create forms effortlessly and save valuable time.</p>
+            <p class="hero-description">The perfect solution for developers to create forms effortlessly and save valuable time. Built with Vue.js for seamless integration.</p>
             <div class="hero-buttons">
                 <Button label="Get Started" class="p-button-raised p-button-primary" />
                 <Button label="Preview" class="p-button-outlined p-button-secondary" >
@@ -163,6 +163,10 @@ const toggleMenu = () => {
     margin-bottom: 3rem;
     padding-top: 4rem;
     padding-bottom: 4rem;
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
 }
 
 .hero-description {
@@ -170,6 +174,8 @@ const toggleMenu = () => {
   font-size: 1.5rem; /* Increased font size */
   font-weight: 500;
   border-radius: 5px;
+  max-width: 720px; /* Limit the width to prevent overly long lines */
+  text-align: center; /* Center align the text */
 }
 
 .hero-buttons {

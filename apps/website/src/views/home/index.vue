@@ -8,7 +8,7 @@
                     <i class="pi pi-github"></i>
                 </a>
                 <a href="/preview" class="nav-link">Preview</a>
-                <Button label="Getting Started" class="p-button-raised p-button-primary cta-button" />
+                <Button label="Get Started" class="p-button-raised p-button-primary cta-button" />
             </nav>
             <Button icon="pi pi-bars" class="menu-toggle" @click="toggleMenu" />
         </header>

@@ -24,7 +24,7 @@ importers:
         specifier: ^0.34.0
         version: 0.34.6(@vitest/ui@0.34.7)
 
-  apps/demo:
+  apps/website:
     dependencies:
       '@directus/sdk':
         specifier: ^10.0.0

@@ -4,9 +4,11 @@
     <header class="header">
       <img src="/public/logo.png" alt="Dymik Logo" class="logo" />
       <nav class="nav" :class="{ 'nav-open': isMenuOpen }">
-        <a href="#" class="nav-link">Home</a>
-        <a href="#features" class="nav-link">Features</a>
-        <a href="#contact" class="nav-link">Contact</a>
+        <a href="https://github.com/dymik-form/dymik-vue" target="_blank" class="nav-link">
+          <i class="pi pi-github"></i>
+        </a>
+        <a href="/preview" class="nav-link">Preview</a>
+        <Button label="Getting Started" class="p-button-raised p-button-primary cta-button" />
       </nav>
       <Button icon="pi pi-bars" class="menu-toggle" @click="toggleMenu" />
     </header>
@@ -88,6 +90,7 @@ const toggleMenu = () => {
   display: flex;
   gap: 1rem;
   transition: transform 0.3s ease-in-out;
+  align-items: center;
 }
 
 .nav.nav-open {
@@ -110,6 +113,10 @@ const toggleMenu = () => {
 
 .menu-toggle {
   display: none;
+}
+
+.cta-button {
+  margin-left: 1rem;
 }
 
 @media (max-width: 768px) {

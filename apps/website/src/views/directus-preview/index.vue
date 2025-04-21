@@ -27,6 +27,7 @@
           </div>
           <h3>Form Meta Data</h3>
           <div class="json-viewer">
+            <Button icon="pi pi-copy" class="copy-button" @click="copyToClipboard(displayMeta)" rounded severity="contrast" outlined />
             <JsonViewer :data="displayMeta" :deep="2"/>
           </div>
         </div>
@@ -66,6 +67,15 @@ const displayMeta = currentForm as any;
 const displayErrors = computed(() => {
   return currentForm.value?.getFormErrors();
 });
+
+function copyToClipboard(data: any) {
+  const text = JSON.stringify(data, null, 2);
+  navigator.clipboard.writeText(text).then(() => {
+    console.log('Copied to clipboard');
+  }).catch(err => {
+    console.error('Failed to copy: ', err);
+  });
+}
 </script>
 
 <style scoped lang="scss">

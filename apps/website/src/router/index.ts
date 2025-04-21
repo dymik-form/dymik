@@ -1,13 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Preview from '@/views/directus-preview/index.vue';
+import Home from '@/views/home/index.vue';
 
 const routes = [
   {
     path: '/',
-    redirect: '/directus-preview'
+    name: 'Home',
+    component: Home
   },
   {
-    path: '/directus-preview',
+    path: '/preview',
     name: 'DirectusPreview',
     component: Preview
   }

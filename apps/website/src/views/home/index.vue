@@ -15,8 +15,10 @@
 
         <!-- Hero Section -->
         <section class="hero">
-            <h1>Create Dynamic Forms Effortlessly</h1>
-            <p>The ultimate solution for lazy developers to build forms in minutes.</p>
+            <h1>
+                Create <span class="dynamic-forms-effect">Dynamic Forms</span> Effortlessly
+            </h1>
+            <p class="hero-description">The ultimate solution for lazy developers to build forms in minutes.</p>
             <Button label="Get Started" class="p-button-raised p-button-primary" />
         </section>
 
@@ -25,19 +27,28 @@
             <h2>Key Features</h2>
             <div class="feature-list">
                 <Card style="width: 25rem; overflow: hidden">
-                    <template #title>Easy Customization</template>
+                    <template #title>
+                        <i class="pi pi-cog" style="display: block; font-size: 3rem; margin-bottom: 0.5rem;"></i>
+                        Easy Customization
+                    </template>
                     <template #content>
                         <p class="m-0">Create forms with fields in just a few clicks.</p>
                     </template>
                 </Card>
                 <Card style="width: 25rem; overflow: hidden">
-                    <template #title>Powerful Integration</template>
+                    <template #title>
+                        <i class="pi pi-cloud" style="display: block; font-size: 3rem; margin-bottom: 0.5rem;"></i>
+                        Powerful Integration
+                    </template>
                     <template #content>
-                        <p class="m-0">Seamlessly connect with APIs and other services.</p>
+                        <p class="m-0">This framework is independent of any Vue UI or backend API, making integration seamless and flexible.</p>
                     </template>
                 </Card>
                 <Card style="width: 25rem; overflow: hidden">
-                    <template #title>Live Preview</template>
+                    <template #title>
+                        <i class="pi pi-eye" style="display: block; font-size: 3rem; margin-bottom: 0.5rem;"></i>
+                        Live Preview
+                    </template>
                     <template #content>
                         <p class="m-0">Test your forms instantly during creation.</p>
                     </template>
@@ -139,6 +150,13 @@ const toggleMenu = () => {
     padding-bottom: 4rem;
 }
 
+.hero-description {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 1.5rem; /* Increased font size */
+  font-weight: 500;
+  border-radius: 5px;
+}
+
 .features {
     display: flex;
     flex-direction: column;
@@ -179,5 +197,24 @@ const toggleMenu = () => {
 .footer-link {
     text-decoration: none;
     color: #333;
+}
+
+.dynamic-forms-effect {
+  background: linear-gradient(90deg, #ff7eb3, #ff758c, #ff6a5e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 3s infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 </style>

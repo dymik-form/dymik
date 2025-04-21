@@ -1,5 +1,15 @@
 <template>
   <div class="landing-page">
+    <!-- Header -->
+    <header class="header">
+      <img src="/public/logo.png" alt="Dymik Logo" class="logo" />
+      <nav class="nav">
+        <a href="#" class="nav-link">Home</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+    </header>
+
     <!-- Hero Section -->
     <section class="hero">
       <h1>Create Dynamic Forms Effortlessly</h1>
@@ -8,7 +18,7 @@
     </section>
 
     <!-- Features Section -->
-    <section class="features">
+    <section id="features" class="features">
       <h2>Key Features</h2>
       <div class="feature-list">
         <Card style="width: 25rem; overflow: hidden">
@@ -31,6 +41,15 @@
         </Card>
       </div>
     </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2025 Dymik Form. All rights reserved.</p>
+      <nav class="footer-nav">
+        <a href="#" class="footer-link">Privacy Policy</a>
+        <a href="#" class="footer-link">Terms of Service</a>
+      </nav>
+    </footer>
   </div>
 </template>
 
@@ -40,7 +59,32 @@
 <style scoped>
 .landing-page {
   text-align: center;
-  padding: 2rem;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+}
+
+.logo {
+  height: 40px;
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
 }
 
 .hero {
@@ -58,5 +102,25 @@
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+.footer {
+  margin-top: 3rem;
+  padding: 1rem 2rem;
+  background-color: #f8f9fa;
+  border-top: 1px solid #ddd;
+  text-align: center;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: #333;
 }
 </style>

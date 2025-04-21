@@ -3,11 +3,12 @@
     <!-- Header -->
     <header class="header">
       <img src="/public/logo.png" alt="Dymik Logo" class="logo" />
-      <nav class="nav">
+      <nav class="nav" :class="{ 'nav-open': isMenuOpen }">
         <a href="#" class="nav-link">Home</a>
         <a href="#features" class="nav-link">Features</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
+      <Button icon="pi pi-bars" class="menu-toggle" @click="toggleMenu" />
     </header>
 
     <!-- Hero Section -->
@@ -53,7 +54,13 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
+import { ref } from 'vue';
+
+const isMenuOpen = ref(false);
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value;
+};
 </script>
 
 <style scoped>
@@ -70,6 +77,7 @@
   padding: 1rem 2rem;
   background-color: #f8f9fa;
   border-bottom: 1px solid #ddd;
+  position: relative;
 }
 
 .logo {
@@ -79,12 +87,43 @@
 .nav {
   display: flex;
   gap: 1rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav.nav-open {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-top: 1px solid #ddd;
 }
 
 .nav-link {
   text-decoration: none;
   color: #333;
   font-weight: bold;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .nav.nav-open {
+    display: flex;
+  }
 }
 
 .hero {

@@ -15,14 +15,14 @@ The project is organized as follows:
 
 ```
 apps/
-  demo/        # Demo application showcasing Dymik Form
+  website/        # Main application showcasing Dymik Form
 packages/
-  dymik-core/  # Core library containing the DymikForm component and utilities
+  dymik-core/     # Core library containing the DymikForm component and utilities
 ```
 
 ### Key Directories
 
-- **apps/demo**: Contains the demo application with example usage of the Dymik Form.
+- **apps/website**: Contains the main application with example usage of the Dymik Form.
 - **packages/dymik-core**: Core library with reusable components, models, and utilities.
 
 ## Getting Started
@@ -45,9 +45,9 @@ packages/
    pnpm install
    ```
 
-3. Start the demo application:
+3. Start the main application:
    ```bash
-   pnpm --filter demo dev
+   pnpm --filter website dev
    ```
 
 4. Open your browser and navigate to `http://localhost:5173`.
@@ -68,9 +68,9 @@ The `dymik-core` package contains the main `DymikForm` component and related uti
    pnpm build
    ```
 
-### Demo Application
+### Main Application
 
-The demo application is located in `apps/demo`. You can modify it to test changes to the core library.
+The main application is located in `apps/website`. You can modify it to test changes to the core library.
 
 ## Contributing
 

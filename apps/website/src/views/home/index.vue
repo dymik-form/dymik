@@ -18,7 +18,7 @@
             <h1>
                 Create <span class="dynamic-forms-effect">Dynamic Forms</span> Effortlessly
             </h1>
-            <p class="hero-description">The ultimate solution for lazy developers to build forms in minutes.</p>
+            <p class="hero-description">The perfect solution for developers to create forms effortlessly and save valuable time.</p>
             <div class="hero-buttons">
                 <Button label="Get Started" class="p-button-raised p-button-primary" />
                 <Button label="Preview" class="p-button-outlined p-button-secondary" >
@@ -37,7 +37,7 @@
                         Easy Customization
                     </template>
                     <template #content>
-                        <p class="m-0">Create forms with fields in just a few clicks.</p>
+                        <p class="m-0">Create forms with field configurations easily, avoiding traditional hard coding.</p>
                     </template>
                 </Card>
                 <Card style="width: 25rem; overflow: hidden">
@@ -52,10 +52,19 @@
                 <Card style="width: 25rem; overflow: hidden">
                     <template #title>
                         <i class="pi pi-eye" style="display: block; font-size: 3rem; margin-bottom: 0.5rem;"></i>
-                        Live Preview
+                        Visibility Control Support
                     </template>
                     <template #content>
-                        <p class="m-0">Test your forms instantly during creation.</p>
+                        <p class="m-0">Easily control the visibility of form fields.</p>
+                    </template>
+                </Card>
+                <Card style="width: 25rem; overflow: hidden">
+                    <template #title>
+                        <i class="pi pi-check" style="display: block; font-size: 3rem; margin-bottom: 0.5rem;"></i>
+                        Advanced Validation
+                    </template>
+                    <template #content>
+                        <p class="m-0">Fully integrated with <strong>Zod</strong> and <strong>ArkType</strong> for advanced and seamless validation capabilities.</p>
                     </template>
                 </Card>
             </div>

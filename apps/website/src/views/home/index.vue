@@ -8,7 +8,7 @@
                     <i class="pi pi-github"></i>
                 </a>
                 <a href="/preview" class="nav-link">Preview</a>
-                <Button label="Get Started" class="p-button-raised p-button-primary cta-button" />
+                <Button label="Get Started" class="p-button-raised p-button-primary cta-button" @click="navigateToDocs" />
             </nav>
             <Button icon="pi pi-bars" class="menu-toggle" @click="toggleMenu" />
         </header>
@@ -20,7 +20,7 @@
             </h1>
             <p class="hero-description">The perfect solution for developers to create forms effortlessly and save valuable time. Built with Vue.js for seamless integration.</p>
             <div class="hero-buttons">
-                <Button label="Get Started" class="p-button-raised p-button-primary" />
+                <Button label="Get Started" class="p-button-raised p-button-primary" @click="navigateToDocs" />
                 <Button label="Preview" class="p-button-outlined p-button-secondary" >
                     <RouterLink to="/preview" class="nav-link">Preview</RouterLink>
                 </Button>
@@ -84,10 +84,16 @@
 <script lang="ts" setup>
 import { RouterLink } from 'vue-router';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 const isMenuOpen = ref(false);
 const toggleMenu = () => {
     isMenuOpen.value = !isMenuOpen.value;
+};
+
+const router = useRouter();
+const navigateToDocs = () => {
+    router.push('/docs/index.html');
 };
 </script>
 

@@ -5,7 +5,7 @@
             <RouterLink to="/" class="logo">
                 <img src="/public/logo.png" alt="Dymik Logo" class="logo" />
             </RouterLink>
-            <Button label="Get Started" class="p-button-raised p-button-primary cta-button" />
+            <Button label="Get Started" class="p-button-raised p-button-primary cta-button" @click="navigateToDocs" />
         </header>
 
         <div class="content-wrapper">
@@ -46,6 +46,10 @@ const menuItems = ref([
         },
     },
 ]);
+
+const navigateToDocs = () => {
+    router.push('/docs/index.html');
+};
 
 onMounted(() => {
     if (router.currentRoute.value.path === '/preview') {

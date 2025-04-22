@@ -4,7 +4,7 @@ import ValidatorUtils from "../utils/validator";
 export default class FormModel implements FormItem {
     name: string;
     description?: string | undefined;
-    id: string;
+    id?: string;
     fields: FormField[];
     css_classes?: string | undefined;
     submit_endpoint?: string | undefined;

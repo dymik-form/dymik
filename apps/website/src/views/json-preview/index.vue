@@ -5,7 +5,7 @@
             <RouterLink to="/" class="logo">
                 <img src="/public/logo.png" alt="Dymik Logo" class="logo" />
             </RouterLink>
-            <Button label="Get Started" class="p-button-raised p-button-primary cta-button" />
+            <Button label="Get Started" class="p-button-raised p-button-primary cta-button" @click="navigateToDocs" />
         </header>
 
         <div class="content-wrapper">
@@ -17,6 +17,7 @@
             <!-- Main Content -->
             <main class="main-content">
                 <router-view />
+                <!-- <simple /> -->
             </main>
         </div>
     </div>
@@ -26,9 +27,7 @@
 import { ref } from 'vue';
 import Menu from 'primevue/menu';
 import { onMounted } from 'vue';
-import { useRouter } from 'vue-router';
-
-const router = useRouter();
+// import simple from './simple/simple.vue';
 
 const menuItems = ref([
     {
@@ -47,9 +46,13 @@ const menuItems = ref([
     },
 ]);
 
+const navigateToDocs = () => {
+    window.location.href = '/docs/index.html';
+};
+
 onMounted(() => {
-    if (router.currentRoute.value.path === '/preview') {
-        router.push('/preview/form?id=login');
+    if (window.location.pathname === '/preview') {
+        window.location.href = '/preview/form?id=login';
     }
 });
 </script>

@@ -1,0 +1,44 @@
+{
+    "name": "Login",
+    "fields": [
+        {
+            "label": "Email",
+            "name": "email",
+            "type": "InputText",
+            "required": true,
+            "props": {
+                "placeholder": "Please enter your email"
+            },
+            "validation_rules": [
+                {
+                    "type": "email",
+                    "message": "Invalid Email"
+                }
+            ],
+            "classes": "full_width"
+        },
+        {
+            "label": "Password",
+            "name": "password",
+            "type": "InputText",
+            "required": true,
+            "props": {
+                "type": "password",
+                "placeholder": "Please enter your password"
+            },
+            "validation_rules": [],
+            "classes": "full_width"
+        },
+        {
+            "name": "btnLogin",
+            "type": "Button",
+            "props": {
+                "type": "submit",
+                "label": "Login",
+                "icon": "pi pi-user",
+                "severity": "contrast"
+            },
+            "classes": "full_width"
+        }
+    ]
+}

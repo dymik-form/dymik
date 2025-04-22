@@ -9,7 +9,9 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc -b && vite build",
+    "build": "vue-tsc -b && vite build && npm run build:docs && cp -r docs/.vitepress/dist dist/docs",
+    "build:docs": "vitepress build docs",
+    "dev:docs": "vitepress dev docs",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -31,6 +33,7 @@
     "sass": "^1.86.3",
     "typescript": "~5.7.2",
     "vite": "^6.2.0",
+    "vitepress": "^1.6.3",
     "vue-tsc": "^2.2.4"
   }
 }

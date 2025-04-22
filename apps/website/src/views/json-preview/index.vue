@@ -26,9 +26,6 @@
 import { ref } from 'vue';
 import Menu from 'primevue/menu';
 import { onMounted } from 'vue';
-import { useRouter } from 'vue-router';
-
-const router = useRouter();
 
 const menuItems = ref([
     {
@@ -48,12 +45,12 @@ const menuItems = ref([
 ]);
 
 const navigateToDocs = () => {
-    router.push('/docs/index.html');
+    window.location.href = '/docs/index.html';
 };
 
 onMounted(() => {
-    if (router.currentRoute.value.path === '/preview') {
-        router.push('/preview/form?id=login');
+    if (window.location.pathname === '/preview') {
+        window.location.href = '/preview/form?id=login';
     }
 });
 </script>

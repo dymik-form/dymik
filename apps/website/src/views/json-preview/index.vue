@@ -27,7 +27,7 @@
 import { ref } from 'vue';
 import Menu from 'primevue/menu';
 import { onMounted } from 'vue';
-import simple from './simple/simple.vue';
+// import simple from './simple/simple.vue';
 
 const menuItems = ref([
     {

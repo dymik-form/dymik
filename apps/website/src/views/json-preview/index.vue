@@ -17,6 +17,7 @@
             <!-- Main Content -->
             <main class="main-content">
                 <router-view />
+                <!-- <simple /> -->
             </main>
         </div>
     </div>
@@ -26,6 +27,7 @@
 import { ref } from 'vue';
 import Menu from 'primevue/menu';
 import { onMounted } from 'vue';
+import simple from './simple/simple.vue';
 
 const menuItems = ref([
     {

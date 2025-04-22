@@ -9,26 +9,26 @@ export interface FormListItem {
 export interface FormItem {
   name: string;
   description?: string;
-  id: string;
+  id?: string;
   fields: FormField[];
   css_classes?: string;
   submit_endpoint?: string;
-  invalid: boolean;
+  invalid?: boolean;
   disabled?: boolean;
 }
 
 export interface FormField {
-  label: string;
+  label?: string;
   name: string;
   type: string;
-  required: boolean;
+  required?: boolean;
   disabled?: boolean;
   required_text?: string;
   props: any;
-  error: string;
+  error?: string;
   classes?: string;
   value?: any;
-  validation_rules: ValidationRule[];
+  validation_rules?: ValidationRule[];
   // Ensure ValidationRule is defined or imported
 }
 

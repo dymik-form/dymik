@@ -70,7 +70,7 @@ The `dymik-core` package contains the main `DymikForm` component and related uti
 
 ### Main Application
 
-The main application is located in `apps/website`. You can modify it to test changes to the core library.
+The main application is located in `apps/website`. It is built with PrimeVue UI, Directus, and the `dymik-core` library.
 
 ## Contributing
 
@@ -91,3 +91,9 @@ This project is licensed under the MIT License. See the LICENSE file for details
 - [Directus](https://directus.io/)
 - [Zod](https://zod.dev/)
 - [ArkType](https://arktype.io/)
+- [PrimeVue](https://primevue.org/)
+
+## 💖 Support us
+
+If you find this project helpful, please consider supporting us via [Open Collective](https://opencollective.com/dymik-vue).  
+Your contributions help us maintain and develop the library further.
